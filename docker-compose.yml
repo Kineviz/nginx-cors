@@ -1,0 +1,9 @@
+version: '2'
+services:
+  nginx:
+    image: kineviz/nginx-cors
+    ports:
+      - 8080:80
+    environment:
+      - TARGET_HOST=host.docker.internal:8080
+      - ALLOW_HEADERS=nsid,token,code
