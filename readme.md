@@ -21,6 +21,7 @@ services:
       - TARGET_HOST=host.docker.internal:8080
       - ALLOW_HEADERS=nsid,token,code
 ```
+### Example (for nebula)
 
 ** JavaScript Fetch Share Cookies Example**
 
