@@ -13,4 +13,12 @@ else
     sed -i -e "s,___TARGET_HOST___,$TARGET_HOST,ig" /etc/nginx/conf.d/default.conf;
 fi
 
+if [[ ! -z "${WS_ONLY}" ]]; then
+    echo "Set Upgrade to \"WebSocket\"";
+    sed -i -e "s,Upgrade\ \$http_upgrade,Upgrade\ \"WebSocket\",ig" /etc/nginx/conf.d/default.conf;
+    
+    echo "Set Connection to \"Upgrade\"";
+    sed -i -e "s,Connection\ \$proxy_connection,Connection\ \"Upgrade\",ig" /etc/nginx/conf.d/default.conf;
+fi
+
 nginx -g 'daemon off;';
