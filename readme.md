@@ -55,3 +55,15 @@ fetch("http://localhost:8080/api/login", {
 });
  
 ```
+
+### Proxy Websocket only (For Neo4j)
+
+```
+docker run  -d \
+--name ${PROJECT_DOMAIN} \
+--restart always \
+-p 8888:80 \
+-e WS_ONLY=true \
+-e TARGET_HOST=192.168.1.227:7687 \
+kineviz/nginx-cors
+```
