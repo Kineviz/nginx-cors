@@ -18,7 +18,7 @@ services:
     ports:
       - 8090:80
     environment:
-      - TARGET_HOST=host.docker.internal:8080
+      - TARGET_HOST=host.docker.internal:9900
       - ALLOW_HEADERS=nsid,token,code
 ```
 ### Example (for nebula)

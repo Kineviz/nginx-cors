@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if [[ -z "${ALLOW_HEADERS}" ]]; then
     echo "You can config ALLOW_HEADERS"
 else
@@ -13,6 +15,12 @@ else
     sed -i -e "s,___TARGET_HOST___,$TARGET_HOST,ig" /etc/nginx/conf.d/default.conf;
 fi
 
+## todo: add support for BASE_PATH
+if [[ -z "${BASE_PATH}" ]]; then
+BASE_PATH="/"
+fi
+sed -i -e "s,___BASE_PATH___,$BASE_PATH,ig" /etc/nginx/conf.d/default.conf;
+ 
 if [[ ! -z "${WS_ONLY}" ]]; then
     echo "Set Upgrade to \"WebSocket\"";
     sed -i -e "s,Upgrade\ \$http_upgrade,Upgrade\ \"WebSocket\",ig" /etc/nginx/conf.d/default.conf;
