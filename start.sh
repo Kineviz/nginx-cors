@@ -13,6 +13,10 @@ else
     sed -i -e "s,___TARGET_HOST___,$TARGET_HOST,ig" /etc/nginx/conf.d/default.conf;
 fi
 
+___TARGET_DOMAIN___="${TARGET_HOST%%:*}"
+sed -i -e "s,___TARGET_DOMAIN___,$___TARGET_DOMAIN___,ig" /etc/nginx/conf.d/default.conf;
+
+
 if [[ ! -z "${WS_ONLY}" ]]; then
     echo "Set Upgrade to \"WebSocket\"";
     sed -i -e "s,Upgrade\ \$http_upgrade,Upgrade\ \"WebSocket\",ig" /etc/nginx/conf.d/default.conf;
