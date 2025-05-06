@@ -5,7 +5,7 @@ A simple nginx proxy for enable CORS, it can support share proxy cookies.
 ** Docker Run: **
 
 ```bash
-docker run -p 8080:80 -e TARGET_HOST=example.com kineviz/nginx-cors
+docker run -p 8080:80 -e TARGET_HOST=localhost:80 kineviz/nginx-cors
 ```
 
 ** Docker Compose: **
